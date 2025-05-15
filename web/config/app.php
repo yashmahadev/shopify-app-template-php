@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('HOST', 'http://localhost'),
+    'url' => env('SHOPIFY_HOST', 'http://localhost'),
 
     'asset_url' => env('ASSET_URL', null),
 

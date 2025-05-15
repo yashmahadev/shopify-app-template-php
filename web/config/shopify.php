@@ -18,7 +18,7 @@ return [
     |
     */
     "billing" => [
-        "required" => false,
+        "required" => env('SHOPFY_BILLING', false),
 
         // Example set of values to create a charge for $5 one time
         "chargeName" => "My Shopify App One-Time Billing",

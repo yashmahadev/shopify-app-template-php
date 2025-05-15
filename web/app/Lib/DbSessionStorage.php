@@ -52,7 +52,10 @@ class DbSessionStorage implements SessionStorage
 
     public function storeSession(Session $session): bool
     {
-        $dbSession = \App\Models\Session::where('session_id', $session->getId())->first();
+        $dbSession = \App\Models\Session::withTrashed()->where('session_id', $session->getId())->first();
+        if ($dbSession && $dbSession->trashed()) {
+            $dbSession->restore();
+        }
         if (!$dbSession) {
             $dbSession = new \App\Models\Session();
         }

@@ -38,7 +38,8 @@ Route::fallback(function (Request $request) {
         if (env('APP_ENV') === 'production') {
             return file_get_contents(public_path('index.html'));
         } else {
-            return file_get_contents(base_path('frontend/index.html'));
+            // return file_get_contents(base_path('frontend/index.html'));
+            return view('app');
         }
     } else {
         return redirect(Utils::getEmbeddedAppUrl($request->query("host", null)) . "/" . $request->path());

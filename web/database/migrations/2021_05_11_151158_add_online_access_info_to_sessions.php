@@ -22,6 +22,7 @@ class AddOnlineAccessInfoToSessions extends Migration
             $table->boolean('account_owner')->nullable();
             $table->string('locale')->nullable();
             $table->boolean('collaborator')->nullable();
+            $table->softDeletes();
         });
     }
 
